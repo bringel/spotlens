@@ -1,0 +1,24 @@
+{
+  "name": "tagstream",
+  "homepage": "https://github.com/bringel/tagstream",
+  "authors": [
+    "Brad Ringel <brad.ringel@gmail.com>"
+  ],
+  "description": "Live photo feeds from instagram and twitter",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fetch": "^0.11.0",
+    "es6-promise": "^3.2.1",
+    "pure": "purecss#^0.6.0"
+  }
+}
