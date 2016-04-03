@@ -5,10 +5,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -22,7 +18,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-#use puma as the app server
+gem 'oauth2', '~> 1.1'
+
+# Use puma as the app server
 gem 'puma'
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -43,7 +41,7 @@ group :development do
   gem 'spring'
 end
 
-group :produciton do
-  #needed for heroku
+group :production do
+  # needed for heroku
   gem 'rails_12factor'
 end
