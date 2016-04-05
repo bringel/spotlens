@@ -1,2 +1,6 @@
-<h1>Admin#index</h1>
-<p>Find me in app/views/admin/index.html.erb</p>
+<h2>Instagram logins</h2>
+<%= link_to "Sign in to Instagram", @oauth_handler.auth_code.authorize_url(:redirect_uri => "#{request.protocol}#{request.host}#{request.port_string}/admin/instagram_callback"), :target => "_blank" %>
+
+<h2>Twitter logins</h2>
+
+<h2>Hashtags</h2>
