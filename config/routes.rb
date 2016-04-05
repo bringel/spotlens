@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   root 'admin#index'
 
-  get 'admin'
+  get 'admin' => 'admin#index'
 
-  get 'admin/instagram_callback'
+  get 'admin/instagram_callback' => 'admin#instagram_callback'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

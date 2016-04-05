@@ -1,5 +1,5 @@
-require("oauth2")
-require("httparty")
+require('oauth2')
+require('httparty')
 
 class TwitterClient
 
