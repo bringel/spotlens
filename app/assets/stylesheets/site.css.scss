@@ -1,0 +1,44 @@
+.topbar{
+  background-color: $topbar-background-color;
+  width: 100%;
+  color: $topbar-text-color;
+  min-height: $topbar-height;
+
+  a{
+    text-decoration: none;
+    line-height: $topbar-height;
+    color: $topbar-text-color;
+    &:visited{
+      color: $topbar-text-color;
+    }
+  }
+
+  span{
+    line-height: $topbar-height;
+    color: $topbar-text-color;
+    margin-left: 10px;
+  }
+
+  ul{
+    list-style-type: none;
+  }
+
+  li{
+    display: inline-block;
+    padding: 3px;
+  }
+
+  nav{
+    display: inline-block;
+  }
+}
+
+.contentWrapper{
+  margin: 10px;
+}
+
+.linkButton{
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}

@@ -1,0 +1,11 @@
+.twitterLogin{
+  @extend .linkButton;
+  background-color: $twitterBlue;
+  color: #ffffff;
+}
+
+.instagramLogin{
+  @extend .linkButton;
+  background-color: $instagramBrown;
+  color: #ffffff;
+}
