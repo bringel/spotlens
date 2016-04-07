@@ -9,3 +9,12 @@
   background-color: $instagramBrown;
   color: #ffffff;
 }
+
+.settings{
+  @include span-columns(4);
+  @include shift(4);
+}
+
+#instagram, #twitter, #hashtags{
+  @include shift(2);
+}

@@ -35,6 +35,7 @@
 
 .contentWrapper{
   margin: 10px;
+  @include outer-container;
 }
 
 .linkButton{
