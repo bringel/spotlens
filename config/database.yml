@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: tagstream_development
+  database: tagstream_dev
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: tagstream_production
-  username: tagstream
-  password: <%= ENV['TAGSTREAM_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

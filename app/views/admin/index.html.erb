@@ -1,6 +1,8 @@
-<h2>Instagram logins</h2>
-<%= link_to "Sign in to Instagram", @oauth_handler.auth_code.authorize_url(:redirect_uri => "#{request.protocol}#{request.host}#{request.port_string}/admin/instagram_callback"), :target => "_blank" %>
+<h3>Instagram logins</h3>
+<%= link_to ("<i class='fa fa-instagram'></i> Sign in to Instagram").html_safe, @instagram_oauth_handler.auth_code.authorize_url(:redirect_uri => "#{request.protocol}#{request.host}#{request.port_string}/admin/instagram_callback"), :target => "_blank", :class=> "instagramLogin" %>
 
-<h2>Twitter logins</h2>
+<h3>Twitter logins</h3>
 
-<h2>Hashtags</h2>
+<%= link_to ("<i class='fa fa-twitter'></i> Sign in to Twitter").html_safe, @twitter_oauth_handler.auth_code.authorize_url(:redirect_url => "#{request.protocol}#{request.host}#{request.port_string}/admin/twitter_callback") , :target => "_blank", :class => "twitterLogin" %>
+
+<h3>Hashtags</h3>

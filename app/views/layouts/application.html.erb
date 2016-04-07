@@ -7,8 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+
+  <div class="topbar">
+    <span>#tagstream</span>
+    <nav role="navigation" id="mainNav">
+      <ul>
+        <li>
+          <a>Gallery</a>
+        </li>
+        <li>
+          <a>Settings</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="contentWrapper">
 
 <%= yield %>
 
+</div>
 </body>
 </html>
