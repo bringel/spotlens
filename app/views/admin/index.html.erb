@@ -1,9 +1,12 @@
 <div class="settings">
   <div id="instagram">
     <h3>Instagram logins</h3>
-    <%= @instagram_users.each do |user| %>
+    <% if @instagram_users.count == 0 %>
+      <div>There are no users</div>
+    <% end %>
+    <% @instagram_users.each do |user| %>
       <div><%= user.username %></div>
-    <%= end %>
+    <% end %>
     <%= link_to ("<i class='fa fa-instagram'></i> Sign in to Instagram").html_safe, @instagram_oauth_code_link, :target =>
     "_blank", :class=> "instagramLogin" %>
   </div>
