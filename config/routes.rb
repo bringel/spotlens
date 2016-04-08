@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'admin/instagram_callback' => 'admin#instagram_callback'
 
+  get 'admin/twitter_callback' => 'admin#twitter_callback'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
