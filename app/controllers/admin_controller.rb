@@ -1,5 +1,5 @@
 require('oauth2')
-require('byebug')
+
 class AdminController < ApplicationController
   def index
     instagram_oauth_handler = OAuth2::Client.new(ENV['INSTAGRAM_CLIENT_ID'], ENV['INSTAGRAM_CLIENT_SECRET'], :site => "https://api.instagram.com")
@@ -7,12 +7,16 @@ class AdminController < ApplicationController
 
     @twitter_oauth_handler = OAuth2::Client.new(ENV['TWITTER_CLIENT_ID'], ENV['TWITTER_CLIENT_SECRET'], :site => "https://twitter.com")
     @twitter_oauth_code_link = @twitter_oauth_handler.auth_code.authorize_url(:redirect_url => twitter_callback_url)
+
+    @instagram_users = UserAccount.where(type: :instagram)
   end
 
   def instagram_callback
     instagram_oauth_handler = OAuth2::Client.new(ENV['INSTAGRAM_CLIENT_ID'], ENV['INSTAGRAM_CLIENT_SECRET'], :site => "https://api.instagram.com", :token_url => "/oauth/access_token")
 
-    @token = instagram_oauth_handler.auth_code.get_token(params[:code], :redirect_uri => "#{request.protocol}#{request.host}#{request.port_string}/admin/instagram_callback")
+    token = instagram_oauth_handler.auth_code.get_token(params[:code], :redirect_uri => instagram_callback_url)
+
+    OAuthUser.create(username: token[:user[:username]])
     redirect_to action: "index"
   end
 

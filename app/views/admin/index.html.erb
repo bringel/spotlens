@@ -1,10 +1,11 @@
 <div class="settings">
   <div id="instagram">
     <h3>Instagram logins</h3>
+    <%= @instagram_users.each do |user| %>
+      <div><%= user.username %></div>
+    <%= end %>
     <%= link_to ("<i class='fa fa-instagram'></i> Sign in to Instagram").html_safe, @instagram_oauth_code_link, :target =>
     "_blank", :class=> "instagramLogin" %>
-
-    <%= @token.token if @token != nil %>
   </div>
   <div id="twitter">
     <h3>Twitter logins</h3>
