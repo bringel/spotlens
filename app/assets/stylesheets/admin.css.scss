@@ -2,19 +2,34 @@
   @extend .linkButton;
   background-color: $twitterBlue;
   color: #ffffff;
+  &:hover{
+    background-color: darken($twitterBlue, 10);
+  }
 }
 
 .instagramLogin{
   @extend .linkButton;
   background-color: $instagramBrown;
   color: #ffffff;
+
+  &:hover{
+    background-color: darken($instagramBrown, 10);
+  }
 }
 
 .settings{
   @include span-columns(4);
   @include shift(4);
+  @include display(flex);
+  @include flex-direction(column);
+  @include align-items(center);
 }
 
-#instagram, #twitter, #hashtags{
-  @include shift(2);
+.instagramUser{
+  margin-bottom: 15px;
+}
+
+.profilePicture{
+  @include size(40px);
+  vertical-align: middle;
 }

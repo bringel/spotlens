@@ -1,22 +1,37 @@
 <div class="settings">
-  <div id="instagram">
-    <h3>Instagram logins</h3>
-    <% if @instagram_users.count == 0 %>
-      <div>There are no users</div>
-    <% end %>
-    <% @instagram_users.each do |user| %>
-      <div><%= user.username %></div>
-    <% end %>
-    <%= link_to ("<i class='fa fa-instagram'></i> Sign in to Instagram").html_safe, @instagram_oauth_code_link, :target =>
+    <div id="centerWrapper">
+        <div id="instagram">
+            <h3>Instagram logins</h3>
+            <% if @instagram_users.count == 0 %>
+              <div>There are no users</div>
+            <% end %>
+            <% @instagram_users.each do |user| %>
+              <div class="instagramUser">
+                <img src="<%= user.profile_picture_url %>" class="profilePicture" alt="user profile picture"/>
+                <span><%= "#{user.fullname} (@#{user.username})" %></span> <i class="fa fa-remove" ></i>
+              </div>
+            <% end %>
+            <%= link_to ("<i class='fa fa-instagram'></i> Sign in to Instagram").html_safe, @instagram_oauth_code_link, :target =>
     "_blank", :class=> "instagramLogin" %>
-  </div>
-  <div id="twitter">
-    <h3>Twitter logins</h3>
+        </div>
+        <div id="twitter">
+            <h3>Twitter logins</h3>
 
-    <%= link_to ("<i class='fa fa-twitter'></i> Sign in to Twitter").html_safe,  @twitter_oauth_code_link, :target => "_blank",
+            <%= link_to ("<i class='fa fa-twitter'></i> Sign in to Twitter").html_safe,  @twitter_oauth_code_link, :target => "_blank",
     :class => "twitterLogin" %>
-  </div>
-  <div id="hashtags">
-    <h3>Hashtags</h3>
-  </div>
+        </div>
+        <h3>Settings</h3>
+        <div id="refresh">
+          <%= form_tag '/admin/save_refresh' do %>
+            <p><%= label_tag 'pullRefresh', 'Refresh from Instagram and Twitter every'%></p>
+            <p><%= number_field_tag 'pullRefresh', 1, min: 0 %> minutes</p>
+
+            <p><%= label_tag 'photoRefresh', 'Show new photo every' %></p>
+            <p><%= number_field_tag 'photoRefresh', 30, min: 30, max: 120 %> seconds</p>
+            <h4>Hashtags</h4>
+
+            <%= button_tag 'Save' %>
+          <% end %>
+        </div>
+    </div>
 </div>

@@ -8,16 +8,17 @@ class AdminController < ApplicationController
     @twitter_oauth_handler = OAuth2::Client.new(ENV['TWITTER_CLIENT_ID'], ENV['TWITTER_CLIENT_SECRET'], :site => "https://twitter.com")
     @twitter_oauth_code_link = @twitter_oauth_handler.auth_code.authorize_url(:redirect_url => twitter_callback_url)
 
-     @instagram_users = UserAccount.where(type: :instagram)
+    @instagram_users = UserAccount.where(account_type: UserAccount.account_types[:instagram])
   end
 
   def instagram_callback
     instagram_oauth_handler = OAuth2::Client.new(ENV['INSTAGRAM_CLIENT_ID'], ENV['INSTAGRAM_CLIENT_SECRET'], :site => "https://api.instagram.com", :token_url => "/oauth/access_token")
 
     token = instagram_oauth_handler.auth_code.get_token(params[:code], :redirect_uri => instagram_callback_url)
-    puts token
-    user = token[:user]
-    UserAccount.create(username: user[:username])
+
+    user = token["user"] # oauth2 stores the rest of the response in the @params variable, which can be accessed w/ []
+
+    UserAccount.create(account_type: UserAccount.account_types[:instagram], username: user["username"], fullname: user["full_name"], profile_picture_url: user["profile_picture"], auth_token: token.token)
     redirect_to action: "index"
   end
 

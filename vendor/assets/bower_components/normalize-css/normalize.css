@@ -251,12 +251,12 @@ hr {
  * Change font properties to `inherit` in all browsers (opinionated).
  */
 
-button,
+/*button,
 input,
 select,
 textarea {
   font: inherit;
-}
+}*/
 
 /**
  * Restore the font weight unset by the previous rule.

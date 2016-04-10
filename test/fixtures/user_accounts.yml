@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 1
+  username: MyString
+  fullname: MyString
+  profile_picture_url: MyString
+  auth_token: MyString
+
+two:
+  type: 1
+  username: MyString
+  fullname: MyString
+  profile_picture_url: MyString
+  auth_token: MyString
