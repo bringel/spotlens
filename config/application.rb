@@ -41,7 +41,7 @@ module Tagstream
     def setup_settings
       dbconnection = PG.connect(ENV['DATABASE_URL'])
 
-      dbconnection.exec('CREATE TABLE settings IF NOT EXISTS(key text NOT NULL PRIMARY KEY, value text);')
+      dbconnection.exec('CREATE TABLE IF NOT EXISTS settings(key text NOT NULL PRIMARY KEY, value text);')
       result = dbconnection.exec('SELECT * FROM settings')
       result.each do |row|
         ENV[row['key']] = row['value']
