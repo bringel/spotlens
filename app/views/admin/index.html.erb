@@ -22,15 +22,15 @@
         </div>
         <h3>Settings</h3>
         <div id="refresh">
-          <%= form_tag '/admin/save_refresh' do %>
-            <p><%= label_tag 'pullRefresh', 'Refresh from Instagram and Twitter every'%></p>
-            <p><%= number_field_tag 'pullRefresh', 1, min: 0 %> minutes</p>
+          <%= form_tag('/admin/save_settings') do %>
+            <p><%= label_tag('pullRefresh', 'Refresh from Instagram and Twitter every') %></p>
+            <p><%= number_field_tag('pullRefresh', 1, { min: 0 }) %> minutes</p>
 
-            <p><%= label_tag 'photoRefresh', 'Show new photo every' %></p>
-            <p><%= number_field_tag 'photoRefresh', 30, min: 30, max: 120 %> seconds</p>
+            <p><%= label_tag('photoRefresh', 'Show new photo every') %></p>
+            <p><%= number_field_tag('photoRefresh', 30, { min: 30, max: 120 }) %> seconds</p>
             <h4>Hashtags</h4>
 
-            <%= button_tag 'Save' %>
+            <%= button_tag('Save') %>
           <% end %>
         </div>
     </div>

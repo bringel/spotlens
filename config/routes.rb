@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'admin/twitter_callback' => 'admin#twitter_callback'
 
+  post 'admin/save_settings' => 'admin#save_settings'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

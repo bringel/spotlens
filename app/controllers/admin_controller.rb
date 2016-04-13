@@ -19,10 +19,13 @@ class AdminController < ApplicationController
     user = token["user"] # oauth2 stores the rest of the response in the @params variable, which can be accessed w/ []
 
     UserAccount.create(account_type: UserAccount.account_types[:instagram], username: user["username"], fullname: user["full_name"], profile_picture_url: user["profile_picture"], auth_token: token.token)
-    redirect_to action: "index"
+    redirect_to(:action => "index")
   end
 
   def twitter_callback
+  end
+
+  def save_settings
   end
 
   def instagram_callback_url
