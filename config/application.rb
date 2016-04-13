@@ -41,11 +41,17 @@ module Tagstream
     def setup_settings
       dbconnection = PG.connect(ENV['DATABASE_URL'])
 
-      dbconnection.exec("CREATE TABLE settings IF NOT EXISTS(key text, value text);")
+      dbconnection.exec('CREATE TABLE settings IF NOT EXISTS(key text NOT NULL PRIMARY KEY, value text);')
       result = dbconnection.exec('SELECT * FROM settings')
       result.each do |row|
-
+        ENV[row['key']] = row['value']
       end
+
+      ENV['photo_fetch_timer'] ||= 60
+      ENV['photo_switch_timer'] ||= 30
+      ENV['hashtags'] ||= '[]'
     end
+    # call the setup method
+    setup_settings
   end
 end
