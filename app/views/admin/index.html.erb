@@ -16,7 +16,6 @@
         </div>
         <div id="twitter">
             <h3>Twitter logins</h3>
-
             <%= link_to ("<i class='fa fa-twitter'></i> Sign in to Twitter").html_safe,  @twitter_oauth_code_link, :target => "_blank",
     :class => "twitterLogin" %>
         </div>
@@ -29,7 +28,10 @@
             <p><%= label_tag('photoRefresh', 'Show new photo every') %></p>
             <p><%= number_field_tag('photoRefresh', 30, { min: 30, max: 120 }) %> seconds</p>
             <h4>Hashtags</h4>
-
+            <% @hashtags.each do |tag| %>
+              <p><%= text_field_tag('hashtags[]', tag) %><i class='fa fa-remove'></i></p>
+            <% end %>
+            <p><%= text_field_tag('hashtags[]', nil, {:placeholder => '#blessed'}) %><i class='fa fa-plus'></i></p>
             <%= button_tag('Save') %>
           <% end %>
         </div>

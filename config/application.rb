@@ -38,12 +38,17 @@ module Tagstream
 
     config.server_static_assets = true # heroku doesn't have a webserver in front of it.
 
+    config.after_initialize do
+      setup_settings
+    end
+    
     def setup_settings
       dbconnection = PG.connect(ENV['DATABASE_URL'])
-
+      logger = Logger.new(STDOUT)
       dbconnection.exec('CREATE TABLE IF NOT EXISTS settings(key text NOT NULL PRIMARY KEY, value text);')
       result = dbconnection.exec('SELECT * FROM settings;')
       result.each do |row|
+        logger.debug(row)
         ENV[row['key']] = row['value']
       end
 
@@ -51,7 +56,5 @@ module Tagstream
       ENV['photo_switch_timer'] ||= '30'
       ENV['hashtags'] ||= '[]'
     end
-    # call the setup method
-    setup_settings
   end
 end

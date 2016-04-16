@@ -1,4 +1,5 @@
 require('oauth2')
+require('json')
 
 class AdminController < ApplicationController
   def index
@@ -9,6 +10,8 @@ class AdminController < ApplicationController
     @twitter_oauth_code_link = @twitter_oauth_handler.auth_code.authorize_url(:redirect_url => twitter_callback_url)
 
     @instagram_users = UserAccount.where(account_type: UserAccount.account_types[:instagram])
+    @hashtags = JSON.parse(ENV['hashtags'])
+    Logger.new(STDOUT).debug(ENV['hashtags'])
   end
 
   def instagram_callback
@@ -26,6 +29,8 @@ class AdminController < ApplicationController
   end
 
   def save_settings
+
+    redirect_to(:action => "index")
   end
 
   def instagram_callback_url
