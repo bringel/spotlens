@@ -41,14 +41,13 @@ module Tagstream
     config.after_initialize do
       setup_settings
     end
-    
+
     def setup_settings
       dbconnection = PG.connect(ENV['DATABASE_URL'])
-      logger = Logger.new(STDOUT)
+
       dbconnection.exec('CREATE TABLE IF NOT EXISTS settings(key text NOT NULL PRIMARY KEY, value text);')
       result = dbconnection.exec('SELECT * FROM settings;')
       result.each do |row|
-        logger.debug(row)
         ENV[row['key']] = row['value']
       end
 
