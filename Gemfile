@@ -26,6 +26,7 @@ gem 'sprockets-es6'
 
 gem 'oauth2', '~> 1.1'
 gem 'rufus-scheduler', '~> 3.2'
+gem 'httparty', '~> 0.13.7'
 
 # Use puma as the app server
 gem 'puma'
