@@ -1,3 +1,8 @@
+<% if flash[:notice] %>
+<div class="notices">
+  <%= flash[:notice] %>
+</div>
+<% end %>
 <div class="settings">
   <div id="centerWrapper">
     <div id="instagram">
@@ -23,11 +28,11 @@
     <h3>Settings</h3>
     <div id="refresh">
       <%= form_tag('/admin/save_settings') do %>
-      <p><%= label_tag('pullRefresh', 'Refresh from Instagram and Twitter every') %></p>
-      <p><%= number_field_tag('pullRefresh', 1, { min: 0 }) %>
+      <p><%= label_tag('fetchRefresh', 'Refresh from Instagram and Twitter every') %></p>
+      <p><%= number_field_tag('fetchRefresh', 1, { min: 0 }) %>
         minutes</p>
-        <p><%= label_tag('photoRefresh', 'Show new photo every') %></p>
-        <p><%= number_field_tag('photoRefresh', 30, { min: 30, max: 120 }) %>
+        <p><%= label_tag('switchRefresh', 'Show new photo every') %></p>
+        <p><%= number_field_tag('switchRefresh', 30, { min: 30, max: 120 }) %>
           seconds</p>
           <div id="hashtags" <h4>Hashtags</h4>
             <% @hashtags.each do |tag| %>

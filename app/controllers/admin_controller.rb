@@ -1,5 +1,6 @@
 require('oauth2')
 require('json')
+require('pg')
 
 class AdminController < ApplicationController
   def index
@@ -11,7 +12,6 @@ class AdminController < ApplicationController
 
     @instagram_users = UserAccount.where(account_type: UserAccount.account_types[:instagram])
     @hashtags = JSON.parse(ENV['hashtags'])
-    Logger.new(STDOUT).debug(ENV['hashtags'])
   end
 
   def instagram_callback
@@ -29,7 +29,20 @@ class AdminController < ApplicationController
   end
 
   def save_settings
+    newFetch = (params["fetchRefresh"].to_i * 60).to_s
+    newSwitch = params["switchRefresh"].to_s
+    newHashtags = params["hashtags"].reject { |tag| tag.empty? }
+    newHashtags = JSON.generate(newHashtags)
 
+    ENV['photo_fetch_timer'] = newFetch
+    ENV['photo_switch_timer'] = newSwitch
+    ENV['hashtags'] = newHashtags
+
+    connection = PG.connect(ENV['DATABASE_URL'])
+    connection.exec("UPDATE settings SET value = '#{newFetch}' WHERE key = 'photo_fetch_timer';")
+    connection.exec("UPDATE settings SET value = '#{newSwitch}' WHERE key = 'photo_switch_timer';")
+    connection.exec("UPDATE settings SET value = '#{newHashtags}' WHERE key = 'hashtags';")
+    flash[:notice] = "Settings saved"
     redirect_to(:action => "index")
   end
 
