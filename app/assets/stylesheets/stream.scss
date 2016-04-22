@@ -1,0 +1,8 @@
+body{
+  background-color: $topbar-background-color;
+}
+
+.photoStream{
+  @include span-columns(8);
+  @include shift(2);
+}
