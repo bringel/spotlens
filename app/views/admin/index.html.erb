@@ -29,7 +29,7 @@
     <div id="refresh">
       <%= form_tag('/admin/save_settings') do %>
       <p><%= label_tag('fetchRefresh', 'Refresh from Instagram and Twitter every') %></p>
-      <p><%= number_field_tag('fetchRefresh', 1, { min: 0 }) %>
+      <p><%= number_field_tag('fetchRefresh', 1, { min: 1 }) %>
         minutes</p>
         <p><%= label_tag('switchRefresh', 'Show new photo every') %></p>
         <p><%= number_field_tag('switchRefresh', 30, { min: 30, max: 120 }) %>

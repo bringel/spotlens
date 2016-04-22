@@ -17,16 +17,16 @@
   }
 }
 
+.instagramUser, .noUsers{
+  margin-bottom: 15px;
+}
+
 .settings{
   @include span-columns(4);
   @include shift(4);
   @include display(flex);
   @include flex-direction(column);
   @include align-items(center);
-}
-
-.instagramUser{
-  margin-bottom: 15px;
 }
 
 .profilePicture{
@@ -44,4 +44,14 @@
   background-color: #71c171;
   padding: 5px;
   border-radius: 4px;
+}
+
+input{
+  border: 1px grey solid;
+  border-radius: 2px;
+  font-size: 14px;
+
+  &[type=number]{
+    text-align: right;
+  }
 }
