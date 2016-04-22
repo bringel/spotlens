@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-  root 'admin#index'
+  root 'stream#index'
+
+  get 'stream/index'
+
+  get 'stream/next_instagram_photo'
+
+  get 'stream/next_twitter_photo'
 
   get 'admin' => 'admin#index'
 
