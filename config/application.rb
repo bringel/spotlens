@@ -38,6 +38,8 @@ module Spotlens
 
     config.server_static_assets = true # heroku doesn't have a webserver in front of it.
 
+    config.autoload_paths << Rails.root.join('lib')
+
     config.after_initialize do
       setup_settings
     end
@@ -54,6 +56,9 @@ module Spotlens
       ENV['photo_fetch_timer'] ||= '60'
       ENV['photo_switch_timer'] ||= '30'
       ENV['hashtags'] ||= '[]'
+
+      current_user = UserAccount.where(:username => 'cafhacker').first # replace with some actual logic at some point
+      @instagram_client = InstagramClient.new(current_user.auth_token)
     end
   end
 end

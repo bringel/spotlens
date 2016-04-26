@@ -1,15 +1,18 @@
 var currentTwitterPhotoID, currentInstagramPhotoID, moreTwitterPhotos, moreInstagramPhotos;
-var sources = ["instagram", "twitter"];
 
 function flipCoin(){
-  return Math.floor(Math.random() * 2);
+  var sources = ["instagram", "twitter"];
+  var flipped = Math.floor(Math.random() * 2);
+
+  return sources[flipped];
 }
 
 function photoTimerFired(){
   var result = flipCoin();
+  if(result === "instagram"){
+    getNextInstagramPhoto(currentInstagramPhotoID).then(function(result){
 
-  if(this.sources[result] === "instagram"){
-
+    });
   }
   else{
 
@@ -31,4 +34,12 @@ function getNextInstagramPhoto(currentID){
     request.send();
   });
   return promise;
+}
+
+function switchPhoto(photoData){
+  
+}
+
+function hitIt(){
+
 }
