@@ -1,4 +1,3 @@
-require('oauth2')
 require('httparty')
 
 class InstagramClient
@@ -7,7 +6,7 @@ class InstagramClient
     @baseURL = "https://api.instagram.com/v1"
   end
 
-  def mostRecentPhotosForHashtag(hashtag)
+  def fetch_most_recent_photos(hashtag)
     tagURL = "#{@baseURL}/tags/#{hashtag}/media/recent?access_token=#{@oauthToken}"
 
     response = HTTParty.get(tagURL)

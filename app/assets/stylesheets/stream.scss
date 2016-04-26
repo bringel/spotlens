@@ -6,3 +6,13 @@ body{
   @include span-columns(8);
   @include shift(2);
 }
+
+.photoContainer{
+}
+
+.detailsContainer{
+  @include display(flex);
+  @include flex-direction(row);
+  @include justify-content(flex-start);
+  @include flex-wrap(nowrap);
+}
