@@ -1,51 +1,49 @@
-<% if flash[:notice] %>
-<div class="notices">
-  <%= flash[:notice] %>
-</div>
-<% end %>
-<div class="settings">
-  <div id="centerWrapper">
-    <div id="instagram">
-      <h3>Instagram logins</h3>
-      <% if @instagram_users.count == 0 %>
-      <div>There are no users</div>
-      <% end %>
-      <% @instagram_users.each do |user| %>
-      <div class="instagramUser">
-        <img src="<%= user.profile_picture_url %>" class="profilePicture" alt="user profile picture"/>
-        <span><%= "#{user.fullname} (@#{user.username})" %></span>
-        <i class="fa fa-remove"></i>
+<div class="contentWrapper">
+  <% if flash[:notice] %>
+  <div class="notices">
+    <%= flash[:notice] %>
+  </div>
+  <% end %>
+  <div class="settings">
+    <div id="centerWrapper">
+      <div id="instagram">
+        <h3>Instagram logins</h3>
+        <% if @instagram_users.count == 0 %>
+        <div>There are no users</div>
+        <% end %>
+        <% @instagram_users.each do |user| %>
+        <div class="instagramUser">
+          <img src="<%= user.profile_picture_url %>" class="profilePicture" alt="user profile picture"/>
+          <span><%= "#{user.fullname} (@#{user.username})" %></span>
+          <i class="fa fa-remove"></i>
+        </div>
+        <% end %>
+        <%= link_to ("<i class='fa fa-instagram'></i> Sign in to Instagram").html_safe, @instagram_oauth_code_link, :target =>
+        "_blank", :class=> "instagramLogin" %>
       </div>
-      <% end %>
-      <%= link_to ("<i class='fa fa-instagram'></i> Sign in to Instagram").html_safe, @instagram_oauth_code_link, :target =>
-      "_blank", :class=> "instagramLogin" %>
-    </div>
-    <div id="twitter">
-      <h3>Twitter logins</h3>
-      <%= link_to ("<i class='fa fa-twitter'></i> Sign in to Twitter").html_safe,  @twitter_oauth_code_link, :target => "_blank",
-      :class => "twitterLogin" %>
-    </div>
-    <h3>Settings</h3>
-    <div id="refresh">
-      <%= form_tag('/admin/save_settings') do %>
-      <p><%= label_tag('fetchRefresh', 'Refresh from Instagram and Twitter every') %></p>
-      <p><%= number_field_tag('fetchRefresh', 1, { min: 1 }) %>
-        minutes</p>
+      <div id="twitter">
+        <h3>Twitter logins</h3>
+        <%= link_to ("<i class='fa fa-twitter'></i> Sign in to Twitter").html_safe,  @twitter_oauth_code_link, :target => "_blank",
+        :class => "twitterLogin" %>
+      </div>
+      <h3>Settings</h3>
+      <div id="refresh">
+        <%= form_tag('/admin/save_settings') do %>
+        <p><%= label_tag('fetchRefresh', 'Refresh from Instagram and Twitter every') %></p>
+        <p><%= number_field_tag('fetchRefresh', 1, { min: 1 }) %>
+          minutes</p>
         <p><%= label_tag('switchRefresh', 'Show new photo every') %></p>
         <p><%= number_field_tag('switchRefresh', 30, { min: 30, max: 120 }) %>
           seconds</p>
-          <div id="hashtags" <h4>Hashtags</h4>
-            <% @hashtags.each do |tag| %>
-            <p><%= text_field_tag('hashtags[]', tag) %>
-              <i class='fa fa-remove'></i>
-            </p>
-            <% end %>
-            <p><%= text_field_tag('hashtags[]', nil, {:placeholder => '#blessed'}) %>
-              <i class='fa fa-plus'></i>
-            </p>
-          </div>
-          <%= button_tag('Save') %>
+        <div id="hashtags" <h4>Hashtags</h4>
+          <% @hashtags.each do |tag| %>
+          <p><%= text_field_tag('hashtags[]', tag) %><i class='fa fa-remove'></i></p>
           <% end %>
+          <p><%= text_field_tag('hashtags[]', nil, {:placeholder => '#blessed'}) %><i class='fa fa-plus'></i></p>
         </div>
+        <%= button_tag('Save') %>
+        <% end %>
       </div>
     </div>
+  </div>
+</div>
