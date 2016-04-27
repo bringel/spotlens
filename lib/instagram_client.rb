@@ -37,7 +37,9 @@ class InstagramClient
       username = photo["user"]["username"]
       profile_picture = photo["user"]["profile_picture"]
       fullname = photo["user"]["full_name"]
-      postTime = photo["created_time"]
+      if !photo["created_time"].empty?
+        postTime = Time.at(photo["created_time"].to_i)
+      end
       photoUrl = photo["images"]["standard_resolution"]["url"]
       photoID = photo["id"]
 
