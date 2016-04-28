@@ -37,9 +37,9 @@ function getNextInstagramPhoto(currentID){
 }
 
 function switchPhoto(photoData){
-  
+
 }
 
-function hitIt(){
+function loaded(){
 
 }
