@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20160426182115) do
     t.datetime "updated_at",              null: false
   end
 
-  create_table "settings", primary_key: "key", force: :cascade, id: false do |t|
+  create_table "settings", force: :cascade do |t|
     t.text "key"
     t.text "value"
   end
