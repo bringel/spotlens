@@ -3,9 +3,7 @@ class StreamController < ApplicationController
   end
 
   def next_instagram_photo
-    respond_to(:json)
-
-    if params[:current].empty?
+    if params[:current] == nil
       nextPhoto = InstagramPhoto.first
     else
       id = params[:current].to_i + 1
@@ -16,6 +14,5 @@ class StreamController < ApplicationController
   end
 
   def next_twitter_photo
-    respond_to(:json)
   end
 end
