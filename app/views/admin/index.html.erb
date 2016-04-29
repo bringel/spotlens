@@ -15,16 +15,15 @@
         <div class="instagramUser">
           <img src="<%= user.profile_picture_url %>" class="profilePicture" alt="user profile picture"/>
           <span><%= "#{user.fullname} (@#{user.username})" %></span>
-          <i class="fa fa-remove"></i>
+          <!-- <i class="fa fa-remove"></i> -->
+          <svg class="icon icon-remove"><use xlink:href="#icon-remove"></use></svg>
         </div>
         <% end %>
-        <%= link_to ("<i class='fa fa-instagram'></i> Sign in to Instagram").html_safe, @instagram_oauth_code_link, :target =>
-        "_blank", :class=> "instagramLogin" %>
+        <%= link_to ("<svg class=\"icon icon-instagram\"><use xlink:href=\"#icon-instagram\"></use></svg> Sign in to Instagram").html_safe, @instagram_oauth_code_link, :class=> "instagramLogin" %>
       </div>
       <div id="twitter">
         <h3>Twitter logins</h3>
-        <%= link_to ("<i class='fa fa-twitter'></i> Sign in to Twitter").html_safe,  @twitter_oauth_code_link, :target => "_blank",
-        :class => "twitterLogin" %>
+        <%= link_to ("<i class='fa fa-twitter'></i> Sign in to Twitter").html_safe,  @twitter_oauth_code_link, :class => "twitterLogin" %>
       </div>
       <h3>Settings</h3>
       <div id="refresh">
@@ -37,9 +36,9 @@
           seconds</p>
         <div id="hashtags" <h4>Hashtags</h4>
           <% @hashtags.each do |tag| %>
-          <p><%= text_field_tag('hashtags[]', tag) %><i class='fa fa-remove'></i></p>
+          <p><%= text_field_tag('hashtags[]', tag) %><svg class="icon icon-remove"><use xlink:href="#icon-remove"></use></svg></p>
           <% end %>
-          <p><%= text_field_tag('hashtags[]', nil, {:placeholder => '#blessed'}) %><i class='fa fa-plus'></i></p>
+          <p><%= text_field_tag('hashtags[]', nil, {:placeholder => '#blessed'}) %><svg class="icon icon-add"><use xlink:href="#icon-add"></use></svg></p>
         </div>
         <%= button_tag('Save') %>
         <% end %>
