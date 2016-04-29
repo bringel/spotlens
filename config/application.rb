@@ -40,5 +40,12 @@ module Spotlens
 
     config.autoload_paths << Rails.root.join('lib')
 
+    unless Rails.env.test?
+      log_level = String(ENV['LOG_LEVEL'] || "info").upcase
+      config.logger = Logger.new(STDOUT)
+      config.logger.level = Logger.const_get(log_level)
+      config.log_level = log_level
+    end
+
   end
 end
