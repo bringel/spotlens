@@ -16,4 +16,5 @@
   @include flex-direction(row);
   @include justify-content(flex-start);
   @include flex-wrap(nowrap);
+  background-color: white;
 }

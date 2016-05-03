@@ -21,6 +21,7 @@
     "es6-promise": "^3.2.1",
     "normalize-css": "^4.0.0",
     "bourbon": "^4.2.6",
-    "neat": "^1.7.4"
+    "neat": "^1.7.4",
+    "mousetrap-js": "^1.5.5"
   }
 }
