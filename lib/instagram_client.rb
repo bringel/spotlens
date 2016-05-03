@@ -6,18 +6,10 @@ class InstagramClient
   def initialize(token)
     @oauthToken = token
     @baseURL = "https://api.instagram.com/v1"
-    @scheduler = Rufus::Scheduler.new
-
-    fetch_all_recent_photos
-
-    @scheduler.every "#{ENV['photo_fetch_timer']}s" do
-      fetch_all_recent_photos
-    end
   end
 
-  def fetch_all_recent_photos
-    hashtags = JSON.parse(ENV['hashtags'])
-    hashtags.each do |tag|
+  def fetch_all_recent_photos(tags)
+    tags.each do |tag|
       fetch_hashtag_recent_photos(tag)
     end
   end
