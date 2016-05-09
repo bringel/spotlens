@@ -1,7 +1,7 @@
 function setupClickHandlers(){
-  var instagramRemoveIcons = document.querySelectorAll("#instagram .fa-remove");
-  var twitterRemoveIcons = document.querySelectorAll("#twitter .fa-remove");
-  var hashtagRemoveIcons = document.querySelectorAll("#hashtags .fa-remove");
+  var instagramRemoveIcons = document.querySelectorAll("#instagram .icon-remove");
+  var twitterRemoveIcons = document.querySelectorAll("#twitter .icon-remove");
+  var hashtagRemoveIcons = document.querySelectorAll("#hashtags .icon-remove");
 
   for(var i = 0; i < instagramRemoveIcons.length; i++){
     let handler = removeInstagramAccount.bind(document, i);
@@ -18,7 +18,7 @@ function setupClickHandlers(){
     hashtagRemoveIcons[i].addEventListener("click", handler);
   }
 
-  var addHashtagIcon = document.querySelector("#hashtags .fa-plus");
+  var addHashtagIcon = document.querySelector("#hashtags .icon-add");
   addHashtagIcon.addEventListener("click", addHashtag);
 }
 
