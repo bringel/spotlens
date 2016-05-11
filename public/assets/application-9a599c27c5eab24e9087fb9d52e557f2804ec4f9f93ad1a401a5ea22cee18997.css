@@ -1,0 +1,879 @@
+/*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
+ */
+/* line 8, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+/* line 18, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ * 2. Add the correct display in IE.
+ */
+/* line 31, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  /* 1 */
+  display: block;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+/* line 50, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+/* line 61, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+/* line 70, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Add the correct display in IE 10-.
+ * 1. Add the correct display in IE.
+ */
+/* line 79, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+template,
+[hidden] {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+/* line 91, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+a {
+  background-color: transparent;
+}
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+/* line 100, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+/* line 113, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+/* line 123, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+/* line 132, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+/* line 141, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+/* line 150, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+/* line 159, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+/* line 168, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+/* line 177, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 185, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 189, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+/* line 200, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+img {
+  border-style: none;
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+/* line 208, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+/* line 220, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+/* line 232, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+/* line 241, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * Change font properties to `inherit` in all browsers (opinionated).
+ */
+/*button,
+input,
+select,
+textarea {
+  font: inherit;
+}*/
+/**
+ * Restore the font weight unset by the previous rule.
+ */
+/* line 265, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+optgroup {
+  font-weight: bold;
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ * 2. Show the overflow in Edge, Firefox, and IE.
+ */
+/* line 275, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+button,
+input,
+select {
+  /* 2 */
+  overflow: visible;
+}
+
+/**
+ * Remove the margin in Safari.
+ * 1. Remove the margin in Firefox and Safari.
+ */
+/* line 286, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+button,
+input,
+select,
+textarea {
+  /* 1 */
+  margin: 0;
+}
+
+/**
+ * Remove the inheritence of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritence of text transform in Firefox.
+ */
+/* line 298, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Change the cursor in all browsers (opinionated).
+ */
+/* line 307, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  cursor: pointer;
+}
+
+/**
+ * Restore the default cursor to disabled elements unset by the previous rule.
+ */
+/* line 318, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+[disabled] {
+  cursor: default;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS.
+ */
+/* line 328, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+/* line 339, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+/* line 349, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+button:-moz-focusring,
+input:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Change the border, margin, and padding in all browsers (opinionated).
+ */
+/* line 358, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+/* line 371, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+/* line 384, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+/* line 393, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+/* line 403, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * Correct the odd appearance of search inputs in Chrome and Safari.
+ */
+/* line 412, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+[type="search"] {
+  -webkit-appearance: textfield;
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome on OS X and
+ * Safari on OS X.
+ */
+/* line 421, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/normalize-css/normalize.css */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* line 4, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/neat/app/assets/stylesheets/grid/_box-sizing.scss */
+html {
+  box-sizing: border-box;
+}
+
+/* line 9, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/neat/app/assets/stylesheets/grid/_box-sizing.scss */
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+/* line 1, /Users/bringel/Coding/spotlens/app/assets/stylesheets/admin.css.scss */
+.twitterLogin {
+  background-color: #55acee;
+  color: #ffffff;
+}
+/* line 5, /Users/bringel/Coding/spotlens/app/assets/stylesheets/admin.css.scss */
+.twitterLogin:hover {
+  background-color: #2795e9;
+}
+
+/* line 10, /Users/bringel/Coding/spotlens/app/assets/stylesheets/admin.css.scss */
+.instagramLogin {
+  background-color: #9b6954;
+  color: #ffffff;
+}
+/* line 15, /Users/bringel/Coding/spotlens/app/assets/stylesheets/admin.css.scss */
+.instagramLogin:hover {
+  background-color: #7a5342;
+}
+
+/* line 20, /Users/bringel/Coding/spotlens/app/assets/stylesheets/admin.css.scss */
+.instagramUser, .noUsers {
+  margin-bottom: 15px;
+}
+
+/* line 24, /Users/bringel/Coding/spotlens/app/assets/stylesheets/admin.css.scss */
+.settings {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  margin-left: 34.11922%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+}
+/* line 89, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/neat/app/assets/stylesheets/grid/_span-columns.scss */
+.settings:last-child {
+  margin-right: 0;
+}
+
+/* line 32, /Users/bringel/Coding/spotlens/app/assets/stylesheets/admin.css.scss */
+.profilePicture {
+  height: 40px;
+  width: 40px;
+  vertical-align: middle;
+}
+
+/* line 37, /Users/bringel/Coding/spotlens/app/assets/stylesheets/admin.css.scss */
+.notices {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  margin-left: 34.11922%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  background-color: #71c171;
+  padding: 5px;
+  border-radius: 4px;
+}
+/* line 89, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/neat/app/assets/stylesheets/grid/_span-columns.scss */
+.notices:last-child {
+  margin-right: 0;
+}
+
+/* line 49, /Users/bringel/Coding/spotlens/app/assets/stylesheets/admin.css.scss */
+input {
+  border: 1px #d3d3d3 solid;
+  border-radius: 2px;
+  font-size: 14px;
+}
+/* line 54, /Users/bringel/Coding/spotlens/app/assets/stylesheets/admin.css.scss */
+input[type=number] {
+  text-align: right;
+}
+
+/* line 60, /Users/bringel/Coding/spotlens/app/assets/stylesheets/admin.css.scss */
+#refresh .icon {
+  margin-left: 4px;
+}
+
+/* line 1, /Users/bringel/Coding/spotlens/app/assets/stylesheets/site.css.scss */
+.topbar {
+  background-color: #262626;
+  width: 100%;
+  color: #d9d9d9;
+  min-height: 25px;
+}
+/* line 7, /Users/bringel/Coding/spotlens/app/assets/stylesheets/site.css.scss */
+.topbar a {
+  text-decoration: none;
+  line-height: 25px;
+  color: #d9d9d9;
+}
+/* line 11, /Users/bringel/Coding/spotlens/app/assets/stylesheets/site.css.scss */
+.topbar a:visited {
+  color: #d9d9d9;
+}
+/* line 16, /Users/bringel/Coding/spotlens/app/assets/stylesheets/site.css.scss */
+.topbar span {
+  line-height: 25px;
+  color: #d9d9d9;
+  margin-left: 10px;
+}
+/* line 22, /Users/bringel/Coding/spotlens/app/assets/stylesheets/site.css.scss */
+.topbar ul {
+  list-style-type: none;
+}
+/* line 26, /Users/bringel/Coding/spotlens/app/assets/stylesheets/site.css.scss */
+.topbar li {
+  display: inline-block;
+  padding: 3px;
+}
+/* line 31, /Users/bringel/Coding/spotlens/app/assets/stylesheets/site.css.scss */
+.topbar nav {
+  display: inline-block;
+}
+
+/* line 36, /Users/bringel/Coding/spotlens/app/assets/stylesheets/site.css.scss */
+.contentWrapper {
+  margin: 10px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 20, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/bourbon/app/assets/stylesheets/addons/_clearfix.scss */
+.contentWrapper::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+/* line 41, /Users/bringel/Coding/spotlens/app/assets/stylesheets/site.css.scss */
+.linkButton, .twitterLogin, .instagramLogin {
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* line 47, /Users/bringel/Coding/spotlens/app/assets/stylesheets/site.css.scss */
+body, html {
+  height: 100%;
+}
+
+/* line 1, /Users/bringel/Coding/spotlens/app/assets/stylesheets/stream.scss */
+.darkWrapper {
+  background-color: #262626;
+  height: 100%;
+}
+
+/* line 6, /Users/bringel/Coding/spotlens/app/assets/stylesheets/stream.scss */
+.photoStream {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-left: 17.05961%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+}
+/* line 89, /Users/bringel/Coding/spotlens/vendor/assets/bower_components/neat/app/assets/stylesheets/grid/_span-columns.scss */
+.photoStream:last-child {
+  margin-right: 0;
+}
+
+/* line 15, /Users/bringel/Coding/spotlens/app/assets/stylesheets/stream.scss */
+.photoContainer img {
+  border-radius: 5px;
+}
+
+/* line 20, /Users/bringel/Coding/spotlens/app/assets/stylesheets/stream.scss */
+.detailsContainer {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  box-pack: start;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  -o-justify-content: flex-start;
+  justify-content: flex-start;
+  -ms-flex-pack: start;
+  -webkit-box-lines: single;
+  -moz-box-lines: single;
+  box-lines: single;
+  -webkit-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* line 30, /Users/bringel/Coding/spotlens/app/assets/stylesheets/stream.scss */
+.profilePhoto img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50px;
+  margin: 3px;
+}
+
+/* line 38, /Users/bringel/Coding/spotlens/app/assets/stylesheets/stream.scss */
+.userDetails {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+}
+
+/* line 43, /Users/bringel/Coding/spotlens/app/assets/stylesheets/stream.scss */
+#names {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+}
+
+/* line 49, /Users/bringel/Coding/spotlens/app/assets/stylesheets/stream.scss */
+#username {
+  color: #125688;
+}
+
+/* line 53, /Users/bringel/Coding/spotlens/app/assets/stylesheets/stream.scss */
+#caption {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  margin-left: 10px;
+}
+
+/* line 59, /Users/bringel/Coding/spotlens/app/assets/stylesheets/stream.scss */
+#captionText {
+  max-width: 400px;
+}
+
+/* line 63, /Users/bringel/Coding/spotlens/app/assets/stylesheets/stream.scss */
+.heartContainer {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/* line 67, /Users/bringel/Coding/spotlens/app/assets/stylesheets/stream.scss */
+.heartContainer .icon-heart {
+  font-size: 32px;
+  color: red;
+  margin-right: 5px;
+}
+
+/* line 1, /Users/bringel/Coding/spotlens/app/assets/stylesheets/_icons.scss */
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+/* =======================================================================================
+Example showing how to change the color/size of the icons:
+.icon-name {
+	font-size: 32px; // works because "width" & "height" were set using em units
+	color: red; // works for single-colored icons, because "fill" was set to "currentColor"
+}
+======================================================================================== */
+/* line 17, /Users/bringel/Coding/spotlens/app/assets/stylesheets/_icons.scss */
+.icon-heart {
+  width: 0.9999999646097422em;
+}
+
+/* line 21, /Users/bringel/Coding/spotlens/app/assets/stylesheets/_icons.scss */
+.icon-gallery {
+  width: 1.0000000521540642em;
+}
+
+/* line 25, /Users/bringel/Coding/spotlens/app/assets/stylesheets/_icons.scss */
+.icon-remove {
+  width: 0.7857148498296738em;
+}
+
+/* line 29, /Users/bringel/Coding/spotlens/app/assets/stylesheets/_icons.scss */
+.icon-add {
+  width: 0.785714827477932em;
+}
+
+/* line 33, /Users/bringel/Coding/spotlens/app/assets/stylesheets/_icons.scss */
+.icon-twitter {
+  width: 0.9285703301429749em;
+}
+
+/* line 37, /Users/bringel/Coding/spotlens/app/assets/stylesheets/_icons.scss */
+.icon-instagram {
+  width: 0.8571415841579437em;
+}
