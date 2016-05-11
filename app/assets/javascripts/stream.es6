@@ -73,7 +73,7 @@ function loaded(){
     var caption = document.getElementById("captionText");
     caption.textContent = result.caption;
 
-    var hearts = document.getElementById("likes");
+    var hearts = document.getElementById("likeCount");
     hearts.textContent = result.likes;
   });
   setTimeout(photoTimerFired, photoSwitchTimer * 1000);
