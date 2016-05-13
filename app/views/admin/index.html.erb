@@ -23,7 +23,11 @@
       </div>
       <div id="twitter">
         <h3>Twitter logins</h3>
-        <%= link_to ("<svg class=\"icon icon-twitter\"><use xlink:href=\"#icon-twitter\"></use></svg> Sign in to Twitter").html_safe,  @twitter_oauth_code_link, :class => "twitterLogin" %>
+        <% if @twitter_auth %>
+        <div>Authenticated with Twitter</div>
+        <% else %>
+        <%= link_to ("<svg class=\"icon icon-twitter\"><use xlink:href=\"#icon-twitter\"></use></svg> Sign in to Twitter").html_safe,  "", :class => "twitterLogin" %>
+        <% end %>
       </div>
       <h3>Settings</h3>
       <div id="refresh">

@@ -1,6 +1,6 @@
-require('oauth2')
 require('httparty')
+require('json')
 
-class TwitterClient
+class TwitterClient < ApiClient
 
 end

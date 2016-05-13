@@ -2,6 +2,13 @@ function setupClickHandlers(){
   var instagramRemoveIcons = document.querySelectorAll("#instagram .icon-remove");
   var twitterRemoveIcons = document.querySelectorAll("#twitter .icon-remove");
   var hashtagRemoveIcons = document.querySelectorAll("#hashtags .icon-remove");
+  var twitterLoginLink = document.querySelector(".twitterLogin");
+
+  twitterLoginLink.addEventListener("click", function(){
+    var xhr = new XMLHttpRequest();
+    xhr.open("get", `${window.location.origin}/admin/twitter_callback`);
+    xhr.send();
+  });
 
   for(var i = 0; i < instagramRemoveIcons.length; i++){
     let handler = removeInstagramAccount.bind(document, i);
