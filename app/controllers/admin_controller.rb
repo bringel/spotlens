@@ -58,7 +58,17 @@ class AdminController < ApplicationController
     redirect_to(:action => "index")
   end
 
+  def remove_instagram_account
+    account_index = params[:account_index]
+
+    instagram_accounts = UserAccount.where(:account_type => UserAccount.account_types[:instagram]).order(:id)
+    instagram_accounts[account_index].destroy
+
+    redirect_to(:action => "index")
+  end
+
   def instagram_callback_url
     "#{request.protocol}#{request.host_with_port}/admin/instagram_callback"
   end
+
 end
