@@ -12,12 +12,7 @@ function photoTimerFired(){
   if(result === "instagram"){
     getNextInstagramPhoto(currentInstagramPhotoID).then(function(result){
       result = JSON.parse(result);
-      currentInstagramPhotoID = result.id;
-      var imageTag = new Image();
-      var imageContainer = document.getElementById("currentPhoto");
-      imageContainer.appendChild(imageTag);
-      console.log(result.photo_url)
-      imageTag.src = result.photo_url;
+      parseAndDisplayInstagramData(result);
     });
   }
   else{
@@ -62,8 +57,8 @@ function loaded(){
 function parseAndDisplayInstagramData(result){
   currentInstagramPhotoID = result.id;
   var imageContainer = document.getElementById("currentPhoto");
-  if(imageContainer.children.length > 0 && imageContainer.firstChild.tagName === "img"){
-    imageContainer.firstChild.src = result.photo_url;
+  if(imageContainer.children.length > 0 && imageContainer.firstElementChild.tagName.toLowerCase() === "img"){
+    imageContainer.firstElementChild.src = result.photo_url;
   }
   else{
     var imageTag = new Image();
@@ -72,8 +67,8 @@ function parseAndDisplayInstagramData(result){
   }
 
   var profilePhotoContainer = document.getElementById("profile");
-  if(profilePhotoContainer.children.length > 0 && profilePhotoContainer.firstChild.tagName === "img"){
-    profilePhotoContainer.firstChild.src = result.instagram_profile_photo;
+  if(profilePhotoContainer.children.length > 0 && profilePhotoContainer.firstElementChild.tagName.toLowerCase() === "img"){
+    profilePhotoContainer.firstElementChild.src = result.instagram_profile_photo;
   }
   else{
     var profilePhoto = new Image();
