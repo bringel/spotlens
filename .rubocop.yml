@@ -3,3 +3,9 @@ Rails:
 
 Metrics/LineLength:
   Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: false

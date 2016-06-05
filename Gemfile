@@ -28,6 +28,10 @@ gem 'oauth2', '~> 1.1'
 gem 'rufus-scheduler', '~> 3.2'
 gem 'httparty', '~> 0.13.7'
 
+gem 'faraday', '~> 0.9.2'
+gem 'faraday_middleware', '~> 0.10.0'
+gem 'simple_oauth', '~> 0.3.1'
+
 # Use puma as the app server
 gem 'puma'
 # Use Unicorn as the app server
