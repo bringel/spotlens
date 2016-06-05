@@ -9,11 +9,11 @@
 
 .instagramLogin{
   @extend .linkButton;
-  background-color: $instagramBrown;
+  background: linear-gradient(to right, $instagram-purple, $instagram-orange);
   color: #ffffff;
 
   &:hover{
-    background-color: darken($instagramBrown, 10);
+    background: linear-gradient(to right, darken($instagram-purple, 10), darken($instagram-orange, 10));
   }
 }
 
@@ -54,6 +54,10 @@ input{
   &[type=number]{
     text-align: right;
   }
+}
+
+.icon{
+  cursor: pointer;
 }
 
 #refresh{
