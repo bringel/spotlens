@@ -26,7 +26,7 @@
         <% if @twitter_auth %>
         <div>Authenticated with Twitter</div>
         <% else %>
-        <%= link_to ("<svg class=\"icon icon-twitter\"><use xlink:href=\"#icon-twitter\"></use></svg> Sign in to Twitter").html_safe,  "", :class => "twitterLogin" %>
+        <%= link_to ("<svg class=\"icon icon-twitter\"><use xlink:href=\"#icon-twitter\"></use></svg> Sign in to Twitter").html_safe,  { :action => :login_with_twitter }, :class => "twitterLogin" %>
         <% end %>
       </div>
       <h3>Settings</h3>

@@ -1,4 +1,6 @@
 require('faraday')
+require('faraday_middleware')
+require('simple_oauth')
 
 class ApiClient
 

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get 'admin/twitter_callback' => 'admin#twitter_callback'
 
+  get 'admin/login_with_twitter' => 'admin#login_with_twitter'
+
   post 'admin/save_settings' => 'admin#save_settings'
 
   delete 'admin/remove_instagram_account' => 'admin#remove_instagram_account'
