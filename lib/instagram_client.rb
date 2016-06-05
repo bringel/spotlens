@@ -1,11 +1,9 @@
-require('httparty')
-require('json')
-require('rufus-scheduler')
-
-class InstagramClient
+class InstagramClient < ApiClient
   def initialize(token)
-    @oauthToken = token
-    @baseURL = "https://api.instagram.com/v1"
+    @token = token
+    @base_url = "https://api.instagram.com"
+    @auth_version = :oauth2
+    super()
   end
 
   def fetch_all_recent_photos(tags)
@@ -15,13 +13,12 @@ class InstagramClient
   end
 
   def fetch_hashtag_recent_photos(hashtag)
-    tagURL = "#{@baseURL}/tags/#{hashtag}/media/recent?access_token=#{@oauthToken}"
+    tagURL = "/v1/tags/#{hashtag}/media/recent"
 
-    response = HTTParty.get(tagURL)
-    return unless response.code >= 200 && response.code < 300
+    response = @connection.get(tagURL)
+    return unless response.success?
 
-    responseData = JSON.parse(response.body)
-    responseData["data"].each do |photo|
+    response.body["data"].each do |photo|
       break unless photo["type"] == "image"
 
       caption = photo["caption"]["text"]
