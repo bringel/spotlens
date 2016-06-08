@@ -17,7 +17,7 @@ class ApiClient
     # request middleware
     connection.request(:url_encoded)
     if @auth_version == :oauth1
-      conneciton.request(:oauth, { :consumer_key => @consumer_key, :consumer_secret => @consumer_secret, :token => @token, :token_secret => @token_secret })
+      connection.request(:oauth, { :consumer_key => @consumer_key, :consumer_secret => @consumer_secret, :token => @token, :token_secret => @token_secret })
     else
       connection.request(:oauth2, @token)
     end
