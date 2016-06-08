@@ -14,7 +14,7 @@ class AdminController < ApplicationController
 
 
     @instagram_users = UserAccount.where(account_type: UserAccount.account_types[:instagram])
-    @twitter_auth = UserAccount.where(account_type: UserAccount.account_types[:twitter]).first
+    @twitter_users = UserAccount.where(account_type: UserAccount.account_types[:twitter])
     @hashtags = JSON.parse(ENV['hashtags'])
   end
 
@@ -26,6 +26,7 @@ class AdminController < ApplicationController
     user = token["user"] # oauth2 stores the rest of the response in the @params variable, which can be accessed w/ []
 
     UserAccount.create(account_type: UserAccount.account_types[:instagram], username: user["username"], fullname: user["full_name"], profile_picture_url: user["profile_picture"], auth_token: token.token)
+
     redirect_to(:action => "index")
   end
 
@@ -88,13 +89,15 @@ class AdminController < ApplicationController
     redirect_to(:action => "index")
   end
 
-  def remove_instagram_account
-    account_index = params[:account_index]
+  def remove_account
+    # TODO: this should really redirect and refresh the page, but it doesn't. Maybe use a link instead of an xhr
+    account_index = params[:account_index].to_i
+    account_type = params[:account_type].to_i
 
-    instagram_accounts = UserAccount.where(:account_type => UserAccount.account_types[:instagram]).order(:id)
-    instagram_accounts[account_index].destroy
+    accounts = UserAccount.where(:account_type => account_type).order(:id)
+    accounts[account_index].destroy
 
-    redirect_to(:action => "index")
+    redirect_to(:action => "index", '_' => "cachebustingtime")
   end
 
   def instagram_callback_url

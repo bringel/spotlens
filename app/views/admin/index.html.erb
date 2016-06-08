@@ -23,11 +23,16 @@
       </div>
       <div id="twitter">
         <h3>Twitter logins</h3>
-        <% if @twitter_auth %>
-        <div>Authenticated with Twitter</div>
-        <% else %>
-        <%= link_to ("<svg class=\"icon icon-twitter\"><use xlink:href=\"#icon-twitter\"></use></svg> Sign in to Twitter").html_safe,  { :action => :login_with_twitter }, :class => "twitterLogin" %>
+        <% if @twitter_users.count == 0%>
         <% end %>
+        <% @twitter_users.each do |user| %>
+        <div class="twitterUser">
+          <img src="<%= user.profile_picture_url %>" class="profilePicture" alt="user profile picture" />
+          <span><%= "#{user.fullname} (@#{user.username})" %></span>
+          <svg class="icon icon-remove"><use xlink:href="#icon-remove"></use></svg>
+        </div>
+        <% end %>
+        <%= link_to ("<svg class=\"icon icon-twitter\"><use xlink:href=\"#icon-twitter\"></use></svg> Sign in to Twitter").html_safe,  { :action => :login_with_twitter }, :class => "twitterLogin" %>
       </div>
       <h3>Settings</h3>
       <div id="refresh">

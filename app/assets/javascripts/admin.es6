@@ -2,13 +2,6 @@ function setupClickHandlers(){
   var instagramRemoveIcons = document.querySelectorAll("#instagram .icon-remove");
   var twitterRemoveIcons = document.querySelectorAll("#twitter .icon-remove");
   var hashtagRemoveIcons = document.querySelectorAll("#hashtags .icon-remove");
-  var twitterLoginLink = document.querySelector(".twitterLogin");
-
-  twitterLoginLink.addEventListener("click", function(){
-    var xhr = new XMLHttpRequest();
-    xhr.open("get", `${window.location.origin}/admin/twitter_callback`);
-    xhr.send();
-  });
 
   for(var i = 0; i < instagramRemoveIcons.length; i++){
     let handler = removeInstagramAccount.bind(document, i);
@@ -30,15 +23,23 @@ function setupClickHandlers(){
 }
 
 function removeInstagramAccount(index){
-  console.log(`removing account at index ${index}`)
+  console.log(`removing account at index ${index}`);
+  var token = document.querySelector("meta[name='csrf-token']").content;
   var xhr = new XMLHttpRequest();
-  xhr.open("delete", `${window.location.origin}/admin/remove_instagram_account?${index}`);
+  xhr.open("post", `${window.location.origin}/admin/remove_account?account_index=${index}&account_type=0`);
+  xhr.setRequestHeader("X-CSRF-Token", token)
   console.log(xhr)
   xhr.send();
 }
 
 function removeTwitterAccount(index){
   console.log(`removing twitter account at index: ${index}`);
+  var token = document.querySelector("meta[name='csrf-token']").content;
+  var xhr = new XMLHttpRequest();
+  xhr.open("post", `${window.location.origin}/admin/remove_account?account_index=${index}&account_type=1`);
+  xhr.setRequestHeader("X-CSRF-Token", token)
+  console.log(xhr)
+  xhr.send();
 }
 
 function removeHashtag(event){
