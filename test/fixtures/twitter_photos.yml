@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tweet_id: MyText
+  photo_url: MyText
+  twitter_username: MyText
+  twitter_profile_photo: MyText
+  twitter_fullname: MyText
+  tweet_text: MyText
+  favorites: 1
+  retweets: 1
+  post_time: 2016-06-07 21:15:09
+
+two:
+  tweet_id: MyText
+  photo_url: MyText
+  twitter_username: MyText
+  twitter_profile_photo: MyText
+  twitter_fullname: MyText
+  tweet_text: MyText
+  favorites: 1
+  retweets: 1
+  post_time: 2016-06-07 21:15:09
