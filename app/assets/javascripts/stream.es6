@@ -10,21 +10,24 @@ function flipCoin(){
 function photoTimerFired(){
   var result = flipCoin();
   if(result === "instagram"){
-    getNextInstagramPhoto(currentInstagramPhotoID).then(function(result){
-      result = JSON.parse(result);
-      parseAndDisplayInstagramData(result);
+    getNextInstagramPhoto(currentInstagramPhotoID).then(function(response){
+      response = JSON.parse(response);
+      parseAndDisplayPhotoData(response, result);
     });
   }
-  else{
-
+  else if(result == "twitter"){
+    getNextTwitterPhoto(currentTwitterPhotoID).then(function(response){
+      response = JSON.parse(response);
+      parseAndDisplayPhotoData(response, result)
+    })
   }
 }
 
 function getNextInstagramPhoto(currentID){
   var promise = new Promise(function(resolve, reject){
     let request = new XMLHttpRequest();
-    if(currentInstagramPhotoID){
-      request.open("get", `${window.location.origin}/stream/next_instagram_photo?current=${currentInstagramPhotoID}`);
+    if(currentID){
+      request.open("get", `${window.location.origin}/stream/next_instagram_photo?current=${currentID}`);
     }
     else{
       request.open("get", `${window.location.origin}/stream/next_instagram_photo`);
@@ -42,20 +45,39 @@ function getNextInstagramPhoto(currentID){
   return promise;
 }
 
-function switchPhoto(photoData){
-
+function getNextTwitterPhoto(currentID){
+  var promise = new Promise(function(resolve, reject){
+    let request = new XMLHttpRequest();
+    if(currentID){
+      request.open("get", `${window.location.origin}/stream/next_twitter_photo?current=${currentID}`);
+    }
+    else{
+      request.open("get", `${window.location.origin}/stream/next_twitter_photo`);
+    }
+    request.onload = function(){
+      if(request.status >= 200 && request.status < 300){
+        resolve(request.response);
+      }
+      else{
+        reject(request.status);
+      }
+    };
+    request.send();
+  });
+  return promise;
 }
-
 function loaded(){
-  getNextInstagramPhoto("").then(function(result){
-    result = JSON.parse(result);
-    parseAndDisplayInstagramData(result);
+  getNextInstagramPhoto().then(function(response){
+    response = JSON.parse(response);
+    parseAndDisplayPhotoData(response, "instagram");
   });
   setTimeout(photoTimerFired, photoSwitchTimer * 1000);
 }
 
-function parseAndDisplayInstagramData(result){
-  currentInstagramPhotoID = result.id;
+function parseAndDisplayPhotoData(result, photoSource){
+  if(photoSource == "instagram"){
+    currentInstagramPhotoID = result.id;
+  }
   var imageContainer = document.getElementById("currentPhoto");
   if(imageContainer.children.length > 0 && imageContainer.firstElementChild.tagName.toLowerCase() === "img"){
     imageContainer.firstElementChild.src = result.photo_url;
