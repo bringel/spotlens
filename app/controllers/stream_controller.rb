@@ -14,5 +14,13 @@ class StreamController < ApplicationController
   end
 
   def next_twitter_photo
+    if params[:current] == nil
+      nextPhoto = TwitterPhoto.first
+    else
+      id = params[:current].to_i + 1
+      nextPhoto = TwitterPhoto.find(id)
+    end
+
+    render({:json => nextPhoto})
   end
 end
