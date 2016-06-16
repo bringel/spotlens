@@ -35,7 +35,7 @@ class TwitterClient < ApiClient
       tweetText = tweet["text"]
       favorites = tweet["favorite_count"]
       retweets = tweet["retweet_count"]
-      postTime = Time.parse(tweet["created_at"])
+      postTime = Time.parse.utc(tweet["created_at"])
 
       TwitterPhoto.create({ :tweet_id => tweetID, :photo_url => photoURL, :twitter_username => twitterUsername, :twitter_profile_photo => twitterProfilePhoto, :twitter_fullname => twitterFullname, :tweet_text => tweetText, :favorites => favorites, :retweets => retweets, :post_time => postTime})
     end
