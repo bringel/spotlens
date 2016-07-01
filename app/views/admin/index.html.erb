@@ -1,3 +1,18 @@
+<header>
+    <div class="topbar">
+      <span>#spotlens</span>
+      <nav role="navigation" id="mainNav">
+        <ul>
+          <li>
+            <a>Gallery</a>
+          </li>
+          <li>
+            <%= link_to('Settings', {:controller => 'admin', :action => 'index'}) %>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 <div class="contentWrapper">
   <% if flash[:notice] %>
   <div class="notices">

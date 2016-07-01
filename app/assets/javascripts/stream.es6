@@ -67,11 +67,13 @@ function getNextTwitterPhoto(currentID){
   return promise;
 }
 function loaded(){
-  getNextTwitterPhoto().then(function(response){
-    response = JSON.parse(response);
-    parseAndDisplayPhotoData(response, "twitter");
-  });
-  setTimeout(photoTimerFired, photoSwitchTimer * 1000);
+  // getNextTwitterPhoto().then(function(response){
+  //   response = JSON.parse(response);
+  //   parseAndDisplayPhotoData(response, "twitter");
+  // });
+  // setTimeout(photoTimerFired, photoSwitchTimer * 1000);
+
+  photoTimerFired();
 }
 
 function parseAndDisplayPhotoData(result, photoSource){
