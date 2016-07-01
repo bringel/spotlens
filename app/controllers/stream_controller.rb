@@ -7,7 +7,11 @@ class StreamController < ApplicationController
       nextPhoto = InstagramPhoto.first
     else
       id = params[:current].to_i + 1
-      nextPhoto = InstagramPhoto.find(id)
+      begin
+        nextPhoto = InstagramPhoto.find(id)
+      rescue ActiveRecord::RecordNotFound
+        nextPhoto = InstagramPhoto.first()
+      end
     end
 
     render({:json => nextPhoto})
@@ -18,7 +22,11 @@ class StreamController < ApplicationController
       nextPhoto = TwitterPhoto.first
     else
       id = params[:current].to_i + 1
-      nextPhoto = TwitterPhoto.find(id)
+      begin
+        nextPhoto = TwitterPhoto.find(id)
+      rescue ActiveRecord::RecordNotFound
+        nextPhoto = TwitterPhoto.first()
+      end
     end
 
     render({:json => nextPhoto})

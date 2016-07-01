@@ -24,7 +24,7 @@
       <div id="instagram">
         <h3>Instagram logins</h3>
         <% if @instagram_users.count == 0 %>
-        <div>There are no users</div>
+        <div>No logged in Instagram users</div>
         <% end %>
         <% @instagram_users.each do |user| %>
         <div class="instagramUser">
@@ -39,6 +39,7 @@
       <div id="twitter">
         <h3>Twitter logins</h3>
         <% if @twitter_users.count == 0%>
+        <div>No logged in Twitter users</div>
         <% end %>
         <% @twitter_users.each do |user| %>
         <div class="twitterUser">

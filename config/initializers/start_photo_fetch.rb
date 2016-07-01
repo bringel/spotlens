@@ -2,18 +2,33 @@ require('rufus-scheduler')
 
 scheduler = Rufus::Scheduler.singleton
 
-current_user = UserAccount.where(:username => 'cafhacker').first # replace with some actual logic at some point
-if current_user
-instagram_client = InstagramClient.new(current_user.auth_token)
-hashtags = JSON.parse(ENV['hashtags'])
+current_instagram_user = UserAccount.where(:account_type => UserAccount.account_types[:instagram]).first
+current_twitter_user = UserAccount.where(:account_type => UserAccount.account_types[:twitter]).first
 
-instagram_client.fetch_all_recent_photos(hashtags)
+if current_instagram_user
+  instagram_client = InstagramClient.new(current_instagram_user.auth_token)
+  hashtags = JSON.parse(ENV['hashtags'])
 
-scheduler.every("#{ENV['photo_fetch_timer']}s") do
-  current_user = UserAccount.where(:username => 'cafhacker').first # FIXME: replace with some actual logic at some point
-  instagram_client = InstagramClient.new(current_user.auth_token)
-  hashtags = JSON.parse(ENV['hashtags']) # get the hashtags again inside the block
   instagram_client.fetch_all_recent_photos(hashtags)
 
-end
+  scheduler.every("#{ENV['photo_fetch_timer']}s") do
+    current_instagram_user = UserAccount.where(:account_type => UserAccount.account_types[:instagram]).first
+    instagram_client = InstagramClient.new(current_instagram_user.auth_token)
+    hashtags = JSON.parse(ENV['hashtags']) # get the hashtags again inside the block
+    instagram_client.fetch_all_recent_photos(hashtags)
+  end
+
+  if current_twitter_user
+    twitter_client = TwitterClient.new(current_twitter_user.auth_token, current_twitter_user.token_secret)
+    hashtags = JSON.parse(ENV['hashtags'])
+
+    twitter_client.fetch_all_recent_photos(hashtags)
+
+    scheduler.every("#{ENV['photo_fetch_timer']}s") do
+      current_twitter_user = UserAccount.where(:account_type => UserAccount.account_types[:twitter]).first
+      twitter_client = TwitterClient.new(current_twitter_user.auth_token, current_twitter_user.token_secret)
+      hashtags = JSON.parse(ENV['hashtags'])
+      twitter_client.fetch_all_recent_photos(hashtags)
+    end
+  end
 end

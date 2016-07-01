@@ -15,18 +15,19 @@ class TwitterClient < ApiClient
 
   def fetch_all_recent_photos(tags)
     tags.each do |tag|
+      Rails.logger.info("fetching twitter photos for #{tag}")
       fetch_hashtag_recent_photos(tag)
     end
   end
 
   def fetch_hashtag_recent_photos(hashtag)
-    tagURL = "/1.1/search/tweets.json?q=\##{hashtag} filter:media&result_type=recent"
+    tagURL = "/1.1/search/tweets.json?q=\##{hashtag} filter:media&result_type=recent&include_entities=true"
 
     response = @connection.get(tagURL)
     return unless response.success?
 
     response.body["statuses"].each do |tweet|
-      puts(tweet)
+      # puts(tweet)
       tweetID = tweet["id_str"]
       photoURL = tweet.dig("entities","media",0,"media_url")
       twitterUsername = tweet.dig("user","screen_name")
@@ -35,7 +36,7 @@ class TwitterClient < ApiClient
       tweetText = tweet["text"]
       favorites = tweet["favorite_count"]
       retweets = tweet["retweet_count"]
-      postTime = Time.parse.utc(tweet["created_at"])
+      postTime = Time.zone.parse(tweet["created_at"])
 
       TwitterPhoto.create({ :tweet_id => tweetID, :photo_url => photoURL, :twitter_username => twitterUsername, :twitter_profile_photo => twitterProfilePhoto, :twitter_fullname => twitterFullname, :tweet_text => tweetText, :favorites => favorites, :retweets => retweets, :post_time => postTime})
     end

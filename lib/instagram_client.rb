@@ -8,6 +8,7 @@ class InstagramClient < ApiClient
 
   def fetch_all_recent_photos(tags)
     tags.each do |tag|
+      Rails.logger.info("fetching instagram photos for #{tag}")
       fetch_hashtag_recent_photos(tag)
     end
   end
