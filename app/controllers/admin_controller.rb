@@ -40,7 +40,6 @@ class AdminController < ApplicationController
 
     response = connection.post('oauth/access_token', { :oauth_verifier => params['oauth_verifier'] })
 
-    # {"oauth_token"=>"22973902-nfStd5qytDfKkYS0UroY3h14aCy2naqefysAKHPwT", "oauth_token_secret"=>"b80eKhuKFwAvRN9o9XWqFmcksbUJP4rlela6vcn3MZYOl", "user_id"=>"22973902", "screen_name"=>"cafhacker", "x_auth_expires"=>"0"}
     oauth_body = Hash[ URI.decode_www_form(response.body)]
 
     authenticated_connection = Faraday.new({ :url => 'https://api.twitter.com'}) do |faraday|
