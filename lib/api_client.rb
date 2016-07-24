@@ -22,7 +22,7 @@ class ApiClient
       connection.request(:oauth2, @token)
     end
     # response middleware
-    connection.response(:logger)
+    # connection.response(:logger)
     connection.response(:json, { :content_type => 'application/json' })
     # adapter
     connection.adapter(Faraday.default_adapter)

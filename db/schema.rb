@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608011509) do
+ActiveRecord::Schema.define(version: 20160724151246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "application_settings", force: :cascade do |t|
+    t.integer  "photo_fetch_timer"
+    t.integer  "photo_switch_timer"
+    t.string   "hashtags"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "instagram_photos", force: :cascade do |t|
     t.text     "instagram_id"
@@ -27,10 +35,6 @@ ActiveRecord::Schema.define(version: 20160608011509) do
     t.datetime "post_time"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-  end
-
-  create_table "settings", primary_key: "key", force: :cascade do |t|
-    t.text "value"
   end
 
   create_table "twitter_photos", force: :cascade do |t|

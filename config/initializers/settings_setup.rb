@@ -1,13 +1,10 @@
-require('pg')
 
-dbconnection = PG.connect(ENV['DATABASE_URL'])
+appSettings = ApplicationSetting.first
 
-dbconnection.exec('CREATE TABLE IF NOT EXISTS settings(key text NOT NULL PRIMARY KEY, value text);')
-result = dbconnection.exec('SELECT * FROM settings;')
-result.each do |row|
-  ENV[row['key']] = row['value']
+if appSettings == nil
+  appSettings = ApplicationSetting.create({ :photo_fetch_timer => 60, :photo_switch_timer => 30, :hashtags => '[]' })
 end
 
-ENV['photo_fetch_timer'] ||= '60'
-ENV['photo_switch_timer'] ||= '30'
+ENV['photo_fetch_timer'] = appSettings.photo_fetch_timer.to_s || '60'
+ENV['photo_switch_timer'] = appSettings.photo_switch_timer.to_s || '30'
 ENV['hashtags'] ||= '[]'

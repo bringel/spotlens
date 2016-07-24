@@ -80,10 +80,9 @@ class AdminController < ApplicationController
     ENV['photo_switch_timer'] = newSwitch
     ENV['hashtags'] = newHashtags
 
-    connection = PG.connect(ENV['DATABASE_URL'])
-    connection.exec("UPDATE settings SET value = '#{newFetch}' WHERE key = 'photo_fetch_timer';")
-    connection.exec("UPDATE settings SET value = '#{newSwitch}' WHERE key = 'photo_switch_timer';")
-    connection.exec("UPDATE settings SET value = '#{newHashtags}' WHERE key = 'hashtags';")
+    app_settings = ApplicationSetting.first
+    app_settings.update({ :photo_fetch_timer => newFetch, :photo_switch_timer => newSwitch, :hashtags => newHashtags })
+    
     flash[:notice] = "Settings saved"
     redirect_to(:action => "index")
   end
