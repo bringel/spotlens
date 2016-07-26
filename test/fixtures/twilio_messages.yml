@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  message_sid: MyString
+  account_sid: MyString
+  messaging_service_sid: MyString
+  from: MyString
+  to: MyString
+  body: MyString
+  num_media: 1
+  media_content_type: MyString
+  media_url: MyString
+
+two:
+  message_sid: MyString
+  account_sid: MyString
+  messaging_service_sid: MyString
+  from: MyString
+  to: MyString
+  body: MyString
+  num_media: 1
+  media_content_type: MyString
+  media_url: MyString

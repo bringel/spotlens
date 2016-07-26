@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160724151246) do
+ActiveRecord::Schema.define(version: 20160726221357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,20 @@ ActiveRecord::Schema.define(version: 20160724151246) do
     t.datetime "post_time"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "twilio_messages", force: :cascade do |t|
+    t.string   "message_sid"
+    t.string   "account_sid"
+    t.string   "messaging_service_sid"
+    t.string   "from"
+    t.string   "to"
+    t.string   "body"
+    t.integer  "num_media"
+    t.string   "media_content_type"
+    t.string   "media_url"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "twitter_photos", force: :cascade do |t|
