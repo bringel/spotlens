@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   post 'admin/save_settings' => 'admin#save_settings'
 
   post 'admin/remove_account' => 'admin#remove_account'
+
+  post 'twilio/new_message'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
