@@ -5,6 +5,8 @@ scheduler = Rufus::Scheduler.singleton
 current_instagram_user = UserAccount.where(:account_type => UserAccount.account_types[:instagram]).first
 current_twitter_user = UserAccount.where(:account_type => UserAccount.account_types[:twitter]).first
 
+exit if !ENV['hashtags'] || !ENV['photo_fetch_timer']
+
 if current_instagram_user
   instagram_client = InstagramClient.new(current_instagram_user.auth_token)
   hashtags = JSON.parse(ENV['hashtags'])
