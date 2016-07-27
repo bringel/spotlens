@@ -2,8 +2,10 @@ require('rufus-scheduler')
 
 scheduler = Rufus::Scheduler.singleton
 
-current_instagram_user = UserAccount.where(:account_type => UserAccount.account_types[:instagram]).first
-current_twitter_user = UserAccount.where(:account_type => UserAccount.account_types[:twitter]).first
+if ActiveRecord::Base.connection.table_exists?('user_accounts')
+  current_instagram_user = UserAccount.where(:account_type => UserAccount.account_types[:instagram]).first
+  current_twitter_user = UserAccount.where(:account_type => UserAccount.account_types[:twitter]).first
+end
 
 if ENV['hashtags'] && ENV['photo_fetch_timer']
 
