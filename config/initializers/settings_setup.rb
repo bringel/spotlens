@@ -7,5 +7,5 @@ if ActiveRecord::Base.connection.table_exists?('application_settings')
 
   ENV['photo_fetch_timer'] = appSettings.photo_fetch_timer.to_s || '60'
   ENV['photo_switch_timer'] = appSettings.photo_switch_timer.to_s || '30'
-  ENV['hashtags'] ||= '[]'
+  ENV['hashtags'] = appSettings.hashtags || '[]'
 end
