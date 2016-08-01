@@ -14,7 +14,7 @@ class TwilioController < ApplicationController
                                      :messaging_service_sid => params['MessagingServiceSid'],
                                      :from => params['From'],
                                      :to => params['To'],
-                                     :body => body['Body'],
+                                     :body => params['Body'],
                                      :num_media => params['NumMedia'].to_i,
                                      :media_content_type => params['MediaContentType'],
                                      :media_url => params['MediaUrl']
