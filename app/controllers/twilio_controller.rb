@@ -3,7 +3,7 @@ class TwilioController < ApplicationController
   skip_before_action(:verify_authenticity_token)
 
   def new_message
-    body = JSON.decode(request.body)
+    body = JSON.parse(request.body)
 
     if body['NumMedia'] < 1
       render 'no_photo_sent'
