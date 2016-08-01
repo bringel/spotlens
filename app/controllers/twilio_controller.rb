@@ -3,22 +3,21 @@ class TwilioController < ApplicationController
   skip_before_action(:verify_authenticity_token)
 
   def new_message
-    body = JSON.parse(request.body)
 
-    if body['NumMedia'] < 1
+    if params['NumMedia'] < 1
       render 'no_photo_sent'
     end
 
     @message = TwilioMessage.create({
-                                     :message_sid => body['MessageSid'],
-                                     :account_sid => body['AccountSid'],
-                                     :messaging_service_sid => body['MessagingServiceSid'],
-                                     :from => body['From'],
-                                     :to => body['To'],
+                                     :message_sid => params['MessageSid'],
+                                     :account_sid => params['AccountSid'],
+                                     :messaging_service_sid => params['MessagingServiceSid'],
+                                     :from => params['From'],
+                                     :to => params['To'],
                                      :body => body['Body'],
-                                     :num_media => body['NumMedia'],
-                                     :media_content_type => body['MediaContentType'],
-                                     :media_url => body['MediaUrl']
+                                     :num_media => params['NumMedia'],
+                                     :media_content_type => params['MediaContentType'],
+                                     :media_url => params['MediaUrl']
                                   })
     Rails.logger.debug(@message.to_json)
   end
