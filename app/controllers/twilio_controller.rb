@@ -1,4 +1,7 @@
 class TwilioController < ApplicationController
+  # skip the csrf verification because this endpoint should be hit by twilio
+  skip_before_action(:verify_authenticity_token)
+
   def new_message
     body = JSON.decode(request.body)
 
