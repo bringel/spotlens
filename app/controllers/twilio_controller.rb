@@ -2,6 +2,10 @@ class TwilioController < ApplicationController
   def new_message
     body = JSON.decode(request.body)
 
+    if body['NumMedia'] < 1
+      render 'no_photo_sent'
+    end
+
     @message = TwilioMessage.create({
                                      :message_sid => body['MessageSid'],
                                      :account_sid => body['AccountSid'],
