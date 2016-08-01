@@ -4,7 +4,7 @@ class TwilioController < ApplicationController
 
   def new_message
 
-    if params['NumMedia'] < 1
+    if params['NumMedia'].to_i < 1
       render 'no_photo_sent'
     end
 
@@ -15,7 +15,7 @@ class TwilioController < ApplicationController
                                      :from => params['From'],
                                      :to => params['To'],
                                      :body => body['Body'],
-                                     :num_media => params['NumMedia'],
+                                     :num_media => params['NumMedia'].to_i,
                                      :media_content_type => params['MediaContentType'],
                                      :media_url => params['MediaUrl']
                                   })
