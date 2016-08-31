@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'stream/next_twitter_photo'
 
+  get 'stream/next_twilio_photo'
+  
   get 'admin' => 'admin#index'
 
   get 'admin/instagram_callback' => 'admin#instagram_callback'

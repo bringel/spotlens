@@ -31,4 +31,19 @@ class StreamController < ApplicationController
 
     render({:json => nextPhoto})
   end
+
+  def next_twilio_photo
+    if params[:current] == nil
+      nextPhoto = TwilioMessage.first
+    else
+      id = params[:current].to_i + 1
+      begin
+        nextPhoto = TwilioMessage.find(id)
+      rescue ActiveRecord::RecordNotFound
+        nextPhoto = TwilioMessage.first()
+      end
+    end
+
+    render({:json => nextPhoto})
+  end
 end
