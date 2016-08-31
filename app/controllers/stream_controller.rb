@@ -14,7 +14,7 @@ class StreamController < ApplicationController
       end
     end
 
-    render({:json => nextPhoto})
+    render({:json => nextPhoto, :status => 200})
   end
 
   def next_twitter_photo
@@ -29,7 +29,7 @@ class StreamController < ApplicationController
       end
     end
 
-    render({:json => nextPhoto})
+    render({:json => nextPhoto, :status => 200})
   end
 
   def next_twilio_photo
@@ -44,6 +44,6 @@ class StreamController < ApplicationController
       end
     end
 
-    render({:json => nextPhoto})
+    render({:json => nextPhoto, :status => 200})
   end
 end
