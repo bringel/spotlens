@@ -8,7 +8,7 @@ class TwilioController < ApplicationController
       render 'no_photo_sent'
     end
 
-    num_media = params['NumMedia']
+    num_media = params['NumMedia'].to_i
     num_media.times do |index|
       @message = TwilioMessage.create({
         :message_sid => params['MessageSid'],
@@ -19,7 +19,7 @@ class TwilioController < ApplicationController
         :body => params['Body'],
         :num_media => params['NumMedia'].to_i,
         :media_content_type => params['MediaContentType'],
-        :media_url => params['MediaUrl#{index}']
+        :media_url => params["MediaUrl#{index}"]
         })
       end
   end
